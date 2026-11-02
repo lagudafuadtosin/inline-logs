@@ -1,0 +1,11 @@
+{
+  "name": "nuxt-app-fixture",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --port 5208"
+  },
+  "dependencies": {
+    "nuxt": "4.6.3"
+  }
+}

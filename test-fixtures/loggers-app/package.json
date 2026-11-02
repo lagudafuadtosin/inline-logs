@@ -1,0 +1,11 @@
+{
+  "name": "loggers-app-fixture",
+  "private": true,
+  "dependencies": {
+    "consola": "3.4.2",
+    "pino": "10.4.0",
+    "tslog": "5.4.0",
+    "winston": "3.19.0",
+    "ws": "8.22.1"
+  }
+}

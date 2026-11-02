@@ -1,0 +1,503 @@
+{
+  "name": "inline-logs",
+  "displayName": "Inline Logs",
+  "description": "See console.log output, runtime errors, network requests and WebSocket messages next to the line that made them, for Node, Bun and Deno apps, Next.js, Vite, webpack, SvelteKit, Nuxt, Astro and React Router dev servers, and Jest, Vitest and Bun tests, also in WSL, SSH and dev container windows. Logs from pino, winston, consola and tslog too. Insert and clean up console.log calls, compare values, search them, draw them as a graph, see code coverage, and let AI tools read them over MCP. Free and open source.",
+  "version": "0.5.0",
+  "publisher": "lagudafuadtosin",
+  "author": "Fuad Laguda",
+  "license": "MIT",
+  "pricing": "Free",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e24",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lagudafuadtosin/inline-logs"
+  },
+  "bugs": {
+    "url": "https://github.com/lagudafuadtosin/inline-logs/issues"
+  },
+  "homepage": "https://github.com/lagudafuadtosin/inline-logs#readme",
+  "sponsor": {
+    "url": "https://buymeacoffee.com/lagudafuad"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Debuggers",
+    "Other"
+  ],
+  "keywords": [
+    "console.log",
+    "console",
+    "log",
+    "inline",
+    "debug",
+    "node",
+    "vite",
+    "nextjs",
+    "webpack",
+    "jest",
+    "vitest",
+    "bun",
+    "deno",
+    "errors",
+    "logging",
+    "fetch",
+    "network",
+    "requests",
+    "mcp",
+    "coverage",
+    "diff",
+    "svelte",
+    "sveltekit",
+    "nuxt",
+    "astro",
+    "react-router",
+    "remix",
+    "pino",
+    "winston",
+    "consola",
+    "websocket",
+    "eventsource",
+    "monorepo",
+    "wsl",
+    "remote"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": false
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "inlineLogs.clear",
+        "title": "Clear Values",
+        "category": "Inline Logs",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "inlineLogs.pause",
+        "title": "Pause",
+        "category": "Inline Logs",
+        "icon": "$(debug-pause)",
+        "enablement": "!inlineLogs.paused"
+      },
+      {
+        "command": "inlineLogs.resume",
+        "title": "Resume",
+        "category": "Inline Logs",
+        "icon": "$(debug-continue)",
+        "enablement": "inlineLogs.paused"
+      },
+      {
+        "command": "inlineLogs.togglePause",
+        "title": "Pause or Resume",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.toggleEnabled",
+        "title": "Turn On or Off",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.showViewer",
+        "title": "Show Log Viewer",
+        "category": "Inline Logs",
+        "icon": "$(list-flat)"
+      },
+      {
+        "command": "inlineLogs.search",
+        "title": "Search Logs",
+        "category": "Inline Logs",
+        "icon": "$(search)"
+      },
+      {
+        "command": "inlineLogs.diffPrevious",
+        "title": "Compare With Previous Value",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.compareEntries",
+        "title": "Compare Two Values",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.showGraph",
+        "title": "Show Value as Graph",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.toggleRequests",
+        "title": "Pause or Resume Request Log",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.filterMap",
+        "title": "Filter Log Map",
+        "category": "Inline Logs",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "inlineLogs.clearMapFilter",
+        "title": "Clear Log Map Filter",
+        "category": "Inline Logs",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "inlineLogs.toggleCoverage",
+        "title": "Turn Coverage On or Off",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.clearCoverage",
+        "title": "Clear Coverage",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.copyMcpSetup",
+        "title": "Copy MCP Setup for an AI Tool",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.openLine",
+        "title": "Open Line",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.insertLog",
+        "title": "Insert Log for Selection",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.commentLogs",
+        "title": "Comment Out Console Calls in This File",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.uncommentLogs",
+        "title": "Uncomment Console Calls in This File",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.removeLogs",
+        "title": "Remove Console Calls in This File",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.copyValue",
+        "title": "Copy Value as JSON",
+        "category": "Inline Logs"
+      },
+      {
+        "command": "inlineLogs.export",
+        "title": "Export Entries to a File",
+        "category": "Inline Logs",
+        "icon": "$(save)"
+      },
+      {
+        "command": "inlineLogs.copyTerminalSetup",
+        "title": "Copy Setup for an Outside Terminal",
+        "category": "Inline Logs"
+      }
+    ],
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "inlineLogs",
+          "title": "Inline Logs",
+          "icon": "$(debug-console)"
+        }
+      ]
+    },
+    "views": {
+      "inlineLogs": [
+        {
+          "type": "webview",
+          "id": "inlineLogs.viewer",
+          "name": "Logs"
+        },
+        {
+          "id": "inlineLogs.map",
+          "name": "Log Map"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "inlineLogs.pause",
+          "when": "view == inlineLogs.viewer && !inlineLogs.paused",
+          "group": "navigation@1"
+        },
+        {
+          "command": "inlineLogs.resume",
+          "when": "view == inlineLogs.viewer && inlineLogs.paused",
+          "group": "navigation@1"
+        },
+        {
+          "command": "inlineLogs.clear",
+          "when": "view == inlineLogs.viewer",
+          "group": "navigation@2"
+        },
+        {
+          "command": "inlineLogs.search",
+          "when": "view == inlineLogs.viewer",
+          "group": "navigation@0"
+        },
+        {
+          "command": "inlineLogs.filterMap",
+          "when": "view == inlineLogs.map",
+          "group": "navigation@1"
+        },
+        {
+          "command": "inlineLogs.clearMapFilter",
+          "when": "view == inlineLogs.map && inlineLogs.mapFiltered",
+          "group": "navigation@2"
+        },
+        {
+          "command": "inlineLogs.export",
+          "when": "view == inlineLogs.viewer",
+          "group": "navigation@3"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "inlineLogs.openLine",
+          "when": "false"
+        },
+        {
+          "command": "inlineLogs.insertLog",
+          "when": "editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/"
+        },
+        {
+          "command": "inlineLogs.commentLogs",
+          "when": "editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/"
+        },
+        {
+          "command": "inlineLogs.uncommentLogs",
+          "when": "editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/"
+        },
+        {
+          "command": "inlineLogs.removeLogs",
+          "when": "editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "inlineLogs.insertLog",
+          "when": "!editorReadonly && editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/",
+          "group": "inlineLogs@0"
+        },
+        {
+          "command": "inlineLogs.diffPrevious",
+          "group": "inlineLogs@1"
+        },
+        {
+          "command": "inlineLogs.showGraph",
+          "group": "inlineLogs@2"
+        },
+        {
+          "command": "inlineLogs.copyValue",
+          "group": "inlineLogs@3"
+        }
+      ]
+    },
+    "colors": [
+      {
+        "id": "inlineLogs.foreground",
+        "description": "Colour of logged values shown at the end of a line.",
+        "defaults": {
+          "dark": "#9A9A9A",
+          "light": "#6E6E6E",
+          "highContrast": "#C8C8C8",
+          "highContrastLight": "#4A4A4A"
+        }
+      },
+      {
+        "id": "inlineLogs.warningForeground",
+        "description": "Colour of console.warn values shown at the end of a line.",
+        "defaults": {
+          "dark": "editorWarning.foreground",
+          "light": "editorWarning.foreground",
+          "highContrast": "editorWarning.foreground",
+          "highContrastLight": "editorWarning.foreground"
+        }
+      },
+      {
+        "id": "inlineLogs.infoForeground",
+        "description": "Colour of info entries from logging libraries (pino, winston, consola, tslog) shown at the end of a line.",
+        "defaults": {
+          "dark": "editorInfo.foreground",
+          "light": "editorInfo.foreground",
+          "highContrast": "editorInfo.foreground",
+          "highContrastLight": "editorInfo.foreground"
+        }
+      },
+      {
+        "id": "inlineLogs.errorForeground",
+        "description": "Colour of errors shown at the end of the line that threw.",
+        "defaults": {
+          "dark": "editorError.foreground",
+          "light": "editorError.foreground",
+          "highContrast": "editorError.foreground",
+          "highContrastLight": "editorError.foreground"
+        }
+      },
+      {
+        "id": "inlineLogs.errorBackground",
+        "description": "Background of the line that threw.",
+        "defaults": {
+          "dark": "#FF000020",
+          "light": "#FF000014",
+          "highContrast": "#00000000",
+          "highContrastLight": "#00000000"
+        }
+      }
+    ],
+    "configuration": {
+      "title": "Inline Logs",
+      "properties": {
+        "inlineLogs.enabled": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show console output next to your code. When off, new terminals are left exactly as they were. Terminals already open keep what they had until you open a new one."
+        },
+        "inlineLogs.maxLength": {
+          "type": "number",
+          "default": 80,
+          "minimum": 10,
+          "description": "Longest value shown at the end of a line, in characters. Hover for the full value."
+        },
+        "inlineLogs.levels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "log",
+              "info",
+              "warn",
+              "error",
+              "debug"
+            ]
+          },
+          "default": [
+            "log",
+            "info",
+            "warn",
+            "error",
+            "debug"
+          ],
+          "uniqueItems": true,
+          "description": "Which levels show in the editor, for console calls and logging libraries. Uncaught errors count as error. console.table, dir, trace, count, time and group count as log, and a failed console.assert as warn (error in the browser). A library's trace or debug counts as debug, and fatal as error."
+        },
+        "inlineLogs.sourceMaps": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Turn on Node's source map support in apps started from the terminal, so values from compiled code land on the source line. This also makes the app's own stack traces point at the source. Applies to new terminals."
+        },
+        "inlineLogs.includeNodeModules": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Also show output that only comes from code in `node_modules` (dev servers, build tools, libraries). Output a library makes for your code is always shown on your line. Applies to new terminals."
+        },
+        "inlineLogs.browser": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show console output from the browser for dev servers started in the terminal: Vite (and SvelteKit, Nuxt, Astro and React Router, which run on it), webpack and Next.js. The dev server adds a small script to the pages it serves while it runs. Applies to new terminals."
+        },
+        "inlineLogs.requests": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show `fetch`, `XMLHttpRequest`, `http`/`https` calls, WebSocket and EventSource messages and `navigator.sendBeacon` on the line that made them, with status, time, headers and bodies. Secret headers such as `Authorization` and `Cookie`, and fields that look like passwords or tokens, are replaced with `[redacted]` before they leave the app. Applies to new terminals and to dev server pages loaded after the change."
+        },
+        "inlineLogs.requestBodies": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Keep request and response bodies that are text or JSON, up to 16,000 characters each, also compressed ones. Bodies are read from a copy, so the app still gets all of its own. Applies to new terminals."
+        },
+        "inlineLogs.problems": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show uncaught errors in the Problems panel as well, so tools that read it (Error Lens and others) show them too. An error goes when its line is edited, when a new run of the same program starts, or on **Clear Values**."
+        },
+        "inlineLogs.mcp": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Let AI tools read the captured logs, errors and requests through a local MCP server. VS Code's own chat finds it by itself. For command-line tools, run **Inline Logs: Copy MCP Setup for an AI Tool**. Off by default, because logged values can hold personal data, and a tool may send what it reads to an online model."
+        },
+        "inlineLogs.coverage": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Show which lines ran in the editor gutter, for Node and Deno apps started in new terminals. Green lines ran, red lines are code that never ran. Counts add up across runs until you run **Inline Logs: Clear Coverage**. Off by default, because collecting coverage makes apps slower."
+        }
+      }
+    },
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "inlineLogs.mcp",
+        "label": "Inline Logs"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "inlineLogs.insertLog",
+        "key": "ctrl+k l",
+        "mac": "cmd+k l",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/"
+      },
+      {
+        "command": "inlineLogs.commentLogs",
+        "key": "ctrl+k shift+c",
+        "mac": "cmd+k shift+c",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/"
+      },
+      {
+        "command": "inlineLogs.uncommentLogs",
+        "key": "ctrl+k shift+u",
+        "mac": "cmd+k shift+u",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/"
+      },
+      {
+        "command": "inlineLogs.removeLogs",
+        "key": "ctrl+k shift+d",
+        "mac": "cmd+k shift+d",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^(javascript|typescript|javascriptreact|typescriptreact|svelte|vue|astro|html)$/"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p . && node esbuild.mjs",
+    "typecheck": "tsc -p .",
+    "lint": "eslint .",
+    "test": "node esbuild.mjs && esbuild test/unit/*.test.ts --bundle --platform=node --format=esm --external:typescript --outdir=.test-build/unit --out-extension:.js=.mjs --log-level=warning && node --test \".test-build/unit/*.test.mjs\"",
+    "test:host": "npm run build && esbuild test/host/suite.ts test/host/features-suite.ts test/host/features4-suite.ts test/host/features5-suite.ts test/host/multiroot-suite.ts --bundle --platform=node --format=cjs --external:vscode --outdir=.test-build --entry-names=host-[name] --out-extension:.js=.cjs --log-level=warning && esbuild test/host/run.ts --bundle --platform=node --format=cjs --external:@vscode/test-electron --outfile=.test-build/host-run.cjs --log-level=warning && node .test-build/host-run.cjs",
+    "test:remote": "npm run build && esbuild test/host/remote-suite.ts --bundle --platform=node --format=cjs --external:vscode --outfile=.test-build/host-remote-suite.cjs --log-level=warning && esbuild test/host/run-remote.ts --bundle --platform=node --format=cjs --outfile=.test-build/host-run-remote.cjs --log-level=warning && node .test-build/host-run-remote.cjs",
+    "package": "tsc -p . && node esbuild.mjs --production && vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.5",
+    "@types/vscode": "~1.75.1",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.1.0",
+    "esbuild": "^0.28.2",
+    "eslint": "^10.14.0",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^8.3.5"
+  }
+}

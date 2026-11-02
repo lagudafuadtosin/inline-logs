@@ -1,0 +1,7 @@
+{
+  "name": "sockets-app-fixture",
+  "private": true,
+  "dependencies": {
+    "ws": "8.22.1"
+  }
+}

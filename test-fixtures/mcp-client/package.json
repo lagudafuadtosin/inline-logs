@@ -1,0 +1,9 @@
+{
+  "name": "mcp-client-fixture",
+  "private": true,
+  "type": "module",
+  "description": "A real MCP client (the official SDK) that the tests point at the extension MCP server.",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2"
+  }
+}

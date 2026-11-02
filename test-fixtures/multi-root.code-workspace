@@ -1,0 +1,6 @@
+{
+  "folders": [
+    { "path": "monorepo/packages/api" },
+    { "path": "monorepo/packages/web" }
+  ]
+}

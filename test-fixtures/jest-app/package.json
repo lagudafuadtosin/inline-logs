@@ -1,0 +1,13 @@
+{
+  "name": "jest-app-fixture",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "30.5.2"
+  },
+  "jest": {
+    "cacheDirectory": ".jest-cache"
+  }
+}

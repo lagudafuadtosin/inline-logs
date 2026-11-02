@@ -1,0 +1,8 @@
+{
+  "name": "csp-app-fixture",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5204 --strictPort"
+  }
+}

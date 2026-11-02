@@ -1,0 +1,15 @@
+node_modules
+dist
+.test-build
+.vscode-test
+*.vsix
+.next
+.next-webpack
+.jest-cache
+.svelte-kit
+.nuxt
+.output
+.astro
+.react-router
+.data
+old

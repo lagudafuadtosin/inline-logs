@@ -1,0 +1,20 @@
+---
+const planet = { name: "Mars", moons: 2 };
+console.log("astro frontmatter", planet); // @expect astro-server
+---
+<html lang="en">
+  <head><meta charset="utf-8" /><title>astro fixture</title></head>
+  <body>
+    <h1>{planet.name}</h1>
+    <script>
+      const seen = { where: "browser", ok: true };
+      console.log("astro script", seen); // @expect astro-browser
+    </script>
+    <script>
+      const twins = ["first"];
+      console.log("astro twin", twins.length); // @expect astro-twin-1
+      twins.push("second");
+      console.log("astro twin", twins.length); // @expect astro-twin-2
+    </script>
+  </body>
+</html>

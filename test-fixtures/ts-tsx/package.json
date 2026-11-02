@@ -1,0 +1,7 @@
+{
+  "name": "ts-tsx-fixture",
+  "private": true,
+  "scripts": {
+    "start": "tsx index.ts"
+  }
+}

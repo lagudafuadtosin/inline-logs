@@ -1,0 +1,12 @@
+{
+  "name": "webpack-app-fixture",
+  "private": true,
+  "scripts": {
+    "dev": "webpack serve"
+  },
+  "devDependencies": {
+    "webpack": "5.112.2",
+    "webpack-cli": "7.3.1",
+    "webpack-dev-server": "6.1.0"
+  }
+}

@@ -1,0 +1,12 @@
+**
+!dist/extension.js
+!dist/hook.cjs
+!dist/mcp.cjs
+!dist/logedit.js
+!package.json
+!README.md
+!LICENSE
+!CHANGELOG.md
+!images/icon.png
+!images/coverage-hit.svg
+!images/coverage-miss.svg

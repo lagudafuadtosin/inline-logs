@@ -1,0 +1,19 @@
+{
+  "name": "react-router-app-fixture",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "react-router dev --port 5207 --strictPort"
+  },
+  "dependencies": {
+    "@react-router/node": "7.18.5",
+    "isbot": "5.2.2",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-router": "7.18.5"
+  },
+  "devDependencies": {
+    "@react-router/dev": "7.18.5",
+    "vite": "7.3.1"
+  }
+}
