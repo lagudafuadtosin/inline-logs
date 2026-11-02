@@ -2,10 +2,10 @@
   "name": "inline-logs",
   "displayName": "Inline Logs",
   "description": "See console.log output, runtime errors, network requests and WebSocket messages next to the line that made them, for Node, Bun and Deno apps, Next.js, Vite, webpack, SvelteKit, Nuxt, Astro and React Router dev servers, and Jest, Vitest and Bun tests, also in WSL, SSH and dev container windows. Logs from pino, winston, consola and tslog too. Insert and clean up console.log calls, compare values, search them, draw them as a graph, see code coverage, and let AI tools read them over MCP. Free and open source.",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "publisher": "lagudafuadtosin",
   "author": "Fuad Laguda",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "pricing": "Free",
   "icon": "images/icon.png",
   "galleryBanner": {

@@ -255,6 +255,8 @@ Each value goes to VS Code over a local connection on `127.0.0.1` with a random 
 
 ## License
 
-MIT
+Copyright (C) 2026 Fuad Laguda
+
+Inline Logs is free software under the GNU General Public License, version 3 or any later version. See [LICENSE](LICENSE). It includes TypeScript, under the Apache License 2.0, listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
 Inline Logs is free. If it saves you time, you can [buy me a coffee](https://buymeacoffee.com/lagudafuad).

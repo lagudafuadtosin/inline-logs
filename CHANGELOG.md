@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1
+
+- Licensed under the GNU General Public License, version 3 or any later version. TypeScript, bundled for the log commands, is listed with its Apache 2.0 licence in THIRD-PARTY-NOTICES.md.
+
 ## 0.5.0
 
 - The Copy MCP Setup line for Claude Code points at a launcher next to the bridge, with no `--` and no `-e`, so it pastes into PowerShell as well as bash, and it keeps working after a VS Code update moves VS Code's program.
